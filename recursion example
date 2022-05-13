@@ -252,3 +252,19 @@ return '<li>' + item.id + ' ' + item.name + '(' + item.email + ')</li>'
 }
 
 //////////////////////////////////////////////////
+Операторы: Async Await
+document.querySelector('#load').addEventListener('click', load)
+
+ async function load(){
+  const url = 'https://jsonplaceholder.typicode.com/users'
+
+const response =await fetch(url)
+const data = await response.json()
+
+const html = data.map(function(item){
+return '<li>' + item.id + ' ' + item.name + '(' + item.email + ')</li>'
+   })
+   document.querySelector('#list').insertAdjacentHTML('afterbegin', html.join(' ') )
+}
+
+//////////////////////////////////////////////////
